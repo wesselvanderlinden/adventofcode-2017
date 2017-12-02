@@ -1,18 +1,18 @@
 <?php
-namespace AdventOfCodeTest\Day1;
+namespace AdventOfCodeTest\Day2;
 
-use AdventOfCode\Day1\Day1;
+use AdventOfCode\Day2\Day2;
 use AdventOfCode\PuzzleInterface;
 use AdventOfCodeTest\AbstractPuzzleTest;
 
-class Day1Test extends AbstractPuzzleTest
+class Day2Test extends AbstractPuzzleTest
 {
     /**
      * @return PuzzleInterface
      */
     protected function createPuzzle(): PuzzleInterface
     {
-        return new Day1();
+        return new Day2();
     }
 
     /**
@@ -21,10 +21,10 @@ class Day1Test extends AbstractPuzzleTest
     public function part1Provider(): array
     {
         return [
-            [1122, 3],
-            [1111, 4],
-            [1234, 0],
-            [91212129, 9]
+            ['5 1 9 5', 8],
+            ['7 5 3', 4],
+            ['2 4 6 8', 6],
+            ["5 1 9 5\n7 5 3\n2 4 6 8", 18]
         ];
     }
 
@@ -34,11 +34,10 @@ class Day1Test extends AbstractPuzzleTest
     public function part2Provider(): array
     {
         return [
-            [1212, 6],
-            [1221, 0],
-            [123425, 4],
-            [123123, 12],
-            [12131415, 4],
+            ['5 9 2 8', 4],
+            ['9 4 7 3', 3],
+            ['3 8 6 5', 2],
+            ["5 9 2 8\n9 4 7 3\n3 8 6 5", 9]
         ];
     }
 }

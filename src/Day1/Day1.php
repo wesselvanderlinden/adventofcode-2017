@@ -1,4 +1,5 @@
 <?php
+
 namespace AdventOfCode\Day1;
 
 use AdventOfCode\PuzzleInterface;

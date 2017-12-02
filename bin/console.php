@@ -13,7 +13,7 @@ $inputFile = sprintf('%s/src/%s/input.txt', dirname(__DIR__), $suffix);
 $fqcn = sprintf('AdventOfCode\\%1$s\\%1$s', $suffix);
 
 if (file_exists($inputFile) && class_exists($fqcn)) {
-    $input = file_get_contents($inputFile);
+    $input = trim(file_get_contents($inputFile));
     $instance = new $fqcn();
 
     if (!$instance instanceof \AdventOfCode\PuzzleInterface) {
