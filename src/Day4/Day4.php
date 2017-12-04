@@ -36,7 +36,6 @@ class Day4 implements PuzzleInterface
      */
     protected function validatePasswords(string $input, callable $sanitizeWordCallback = null): int
     {
-
         $lines = explode(PHP_EOL, $input);
         $validPasswordCount = 0;
 
