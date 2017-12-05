@@ -21,8 +21,14 @@ if (file_exists($inputFile) && class_exists($fqcn)) {
     }
 
     echo "Day " . $dayNumber . PHP_EOL;
-    echo "Part 1: " . $instance->solvePart1($input) . PHP_EOL;
-    echo "Part 2: " . $instance->solvePart2($input) . PHP_EOL;
+
+    foreach ([1,2] as $part) {
+        $start = microtime(true);
+        $result = call_user_func([$instance, 'solvePart' . $part], $input);
+        $end = microtime(true);
+
+        printf("Part %u (solved in %.2f ms): %s\n", $part, ($end - $start) * 1000, $result);
+    }
 } else {
     die('Something went wrong. Go fix...' . PHP_EOL);
 }

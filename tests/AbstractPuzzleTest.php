@@ -39,7 +39,7 @@ abstract class AbstractPuzzleTest extends TestCase
      */
     public function testPart1($input, $output)
     {
-        $this->assertEquals($this->puzzle->solvePart1($input), $output);
+        $this->assertEquals($output, $this->puzzle->solvePart1($input));
     }
 
     /**
@@ -49,6 +49,6 @@ abstract class AbstractPuzzleTest extends TestCase
      */
     public function testPart2(string $input, int $output)
     {
-        $this->assertEquals($this->puzzle->solvePart2($input), $output);
+        $this->assertEquals($output, $this->puzzle->solvePart2($input));
     }
 }
