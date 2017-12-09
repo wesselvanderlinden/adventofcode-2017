@@ -1,5 +1,5 @@
 <?php
-namespace AdventOfCodeTest\Day4;
+namespace AdventOfCodeTest\Day5;
 
 use AdventOfCode\Day5\Day5;
 use AdventOfCode\PuzzleInterface;
