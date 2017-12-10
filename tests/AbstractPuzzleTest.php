@@ -47,7 +47,7 @@ abstract class AbstractPuzzleTest extends TestCase
      * @param string $input
      * @param int $output
      */
-    public function testPart2(string $input, int $output)
+    public function testPart2(string $input, $output)
     {
         $this->assertEquals($output, $this->puzzle->solvePart2($input));
     }
