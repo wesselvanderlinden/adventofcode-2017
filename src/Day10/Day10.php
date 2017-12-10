@@ -42,20 +42,17 @@ class Day10 implements PuzzleInterface
         $lengths = array_merge(array_map('ord', str_split($input)), [17, 31, 73, 47, 23]);
         $list = $this->solve($lengths, 64);
         $chunks = array_chunk($list, 16);
-
-        $newList = [];
+        $hashParts = [];
 
         foreach ($chunks as $chunk) {
-            $newList[] = array_reduce($chunk, function ($carry, $length) {
+            $hashParts[] = array_reduce($chunk, function ($carry, $length) {
                 return $carry ^ $length;
             }, 0);
         }
 
-        $hash = array_reduce($newList, function ($carry, $item) {
+        return array_reduce($hashParts, function ($carry, $item) {
             return $carry . str_pad(dechex($item), 2, '0', STR_PAD_LEFT);
         }, '');
-
-        return $hash;
     }
 
     /**
@@ -79,8 +76,8 @@ class Day10 implements PuzzleInterface
 
                 $nextPosition = $currentPosition + $length;
 
-                if ($nextPosition >= count($list)) {
-                    $diff = $nextPosition - count($list);
+                if ($nextPosition >= $this->listSize) {
+                    $diff = $nextPosition - $this->listSize;
                     $slice = array_slice($list, $currentPosition, $length, true) + array_slice($list, 0, $diff, true);
                 } else {
                     $slice = array_slice($list, $currentPosition, $length, true);
@@ -89,10 +86,8 @@ class Day10 implements PuzzleInterface
                 $reversed = array_combine(array_keys($slice), array_reverse($slice));
                 $list = array_replace($list, $reversed);
 
-                $nextPosition += $skipSize;
+                $currentPosition = ($nextPosition + $skipSize) % count($list);
                 $skipSize++;
-
-                $currentPosition = $nextPosition % count($list);
             }
         }
 
